@@ -1,0 +1,870 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 11px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 11px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+<title>OMQS(Offline Message Queue Service) Tutorial (V1.0)</title>
+
+</head>
+<body>
+<h1>OMQS(Offline Message Queue Service) Tutorial (V1.0)</h1>
+
+<p>By Dennis Wu   &lt;<a href="&#109;&#97;&#x69;&#108;&#116;&#111;&#x3a;&#x77;&#x6a;&#x5f;&#x65;&#103;&#x67;&#x40;&#x31;&#54;&#51;&#x2e;&#x63;&#111;&#109;">&#119;&#x6a;&#x5f;&#101;&#103;&#103;&#x40;&#49;&#x36;&#x33;&#x2e;&#99;&#111;&#x6d;</a>>   Oct. 2015</p>
+
+<h2>Overview</h2>
+
+<h3>Objects</h3>
+
+<p>OMQS is a Python service wrapper which passing the messages to the message queue server (particularlly, using RabbitMQ). The major purpose of this service is to simplify the tasks of processing the long-time produces in our Web server backend, like sending sign up SMS, sending emails, or generating the news in notification center.</p>
+
+<h3>Architecture</h3>
+
+<p>There are two major facts that taken into account when designing the OMQS:</p>
+
+<ol>
+<li>The main process must emit the message as soon as possible;</li>
+<li>The message could be processed offline easily and flexibly.</li>
+</ol>
+
+
+<p>For the 1st one, OMQS using the Python native IPC way - Queue, to pass the message to another process, letting the main process continue its own routine right after delivering the message.</p>
+
+<p>For the 2nd one, OMQS is designed in a "Subclass-able" structure, making each core module easily customized, as well as hiding those uncommon settings and miscellaneous from the common user scenarios.</p>
+
+<p>The basic architecture of OMQS is as follows:</p>
+
+<hr />
+
+<p><strong>Main Process</strong> --(emit msg)--> <strong>Worker Process</strong> --(msg looping)--> <strong>Publisher threads</strong> --(send msg)--> <strong>MQ Server</strong> &lt;--(receive msg)-- <strong>Consumer Process</strong></p>
+
+<hr />
+
+<p>There are two types of built-in workers: Event Worker and Log Worker. Corresponding to them, two types of built-in publisher and consumer are used, one is running in synchorous mode while the other one is running in asynchronous mode.</p>
+
+<p>Just as mentioned above, the OMQS is kind of "subclass-able" structure, both workers are subclass of the base class - <em>MsgWorker</em>. And both consumers are subclass of <em>SyncConsumer</em>.</p>
+
+<blockquote><p><strong>NOTE</strong>:</p>
+
+<p>Althought currently the publisher mode is bound to the corresponding worker, the consumer has no restriction on choosing the mode. And that is what happened now in current implementation: Both event consumer and log consumer are using the SyncConsumer base class.</p></blockquote>
+
+<h2>Usage</h2>
+
+<h3>Configuration:</h3>
+
+<p>Before you starting to use the OMQS service, it is highly recommended to check the global configuration file. OMQS uses a global configuration file called <strong>OMQS.cfg</strong> in the main path of the OMQS module.
+It is a common <em>.ini</em> formated file. Here is the standard example of OMQS.cfg:</p>
+
+<pre><code>;------------------- Global Settings -------------------
+[Global]
+MQURL=amqp://artcm:111@192.168.31.225:5672/%%2F?heartbeat_interval=600
+
+RECONNECT_INTERVAL=5
+RECONNECT_TIMES=100
+
+;------------------- Log Settings -------------------
+[Log]
+FOLDER=./log/
+LEVEL=INFO
+FORMAT=('%%(levelname) -5s %%(asctime)s %%(filename) -10s:%%(lineno) -5d: %%(message)s')
+
+...
+
+; =====================================================================
+; The following settings are the defaults for each type of MQ publisher
+; Normally you should not change these settings
+;
+
+...
+
+;------------------- Topic Publisher -------------------
+[AsyncPublisher]
+EXCHANGE=omqs.default.asyncPublisher.exchange
+EXCHANGE_TYPE=topic
+QUEUE=omqs.default.asyncPublisher.queue
+ROUTING_KEY=omqs.default.asyncPublisher.key
+
+
+[SyncPublisher]
+EXCHANGE=omqs.default.syncPublisher.exchange
+EXCHANGE_TYPE=topic
+QUEUE=omqs.default.syncPublisher.queue
+ROUTING_KEYS=omqs.default.syncPublisher.key
+
+...
+</code></pre>
+
+<blockquote><p><strong>NOTED:</strong></p>
+
+<p>While most of the settings can be left un-modified, there is still most important one that you should check each time before you initialize your project with OMQS service: <strong>MQURL</strong> item, which identify the MQ server address and connection parameters.</p></blockquote>
+
+<p>When using this configuration file, values of the settings listed in the section <em>Publisher</em> are loaded as following priority (in descending order):</p>
+
+<ol>
+<li>the parameters passed in during the calling</li>
+<li>the global config file - OMQS.cfg</li>
+<li>the default value hard coded in each class constants.</li>
+</ol>
+
+
+<h3>Basic Example:</h3>
+
+<h4>1. Sending Message</h4>
+
+<p>First, you need a OMQSManager:</p>
+
+<pre><code>manager = OMQSManager()
+</code></pre>
+
+<p>Before sending out the messages, you need to start the manager:</p>
+
+<pre><code>manager.run()
+</code></pre>
+
+<p>Then, you can deliver the message using different API basing on the message type: log or event.
+For example, to send a info log, you can call send_info(). To send a debug log, just call send_debug().
+Or you can use send_log() directly, passing in the <strong>key</strong> argument with the key string if you want use different strings as keys.(But be careful that you need check the same keys on the consumer side.)</p>
+
+<pre><code>manager.send_info(log)
+manager.send_debug(log)
+manager.send_event('simple event') # this event will be sent using default key: 'omqs.key.event'
+
+manager.send_log('This is a debug log', 'debug')
+manager.send_event('{Email: wj_egg@163.com}', 'email_notification')
+</code></pre>
+
+<p>Fairly easy!! Isn't it?</p>
+
+<p>Now you can stop the manager when complete the tasks:</p>
+
+<pre><code>manager.stop()
+</code></pre>
+
+<p>So, puting together:</p>
+
+<pre><code>if __name__ == '__main__':
+    manager = OMQSManager()
+
+    manager.run()
+
+    t1 = time.time()
+    for i in range(1, 100):
+        msg = 'msg %d' % i
+        manager.send_info(msg)
+        if i % 10 == 0:
+            manager.send_event(msg)
+
+    t2 = time.time()
+    dt = t2 - t1
+    print 'total time: %f' % dt
+
+    time.sleep(3)
+    manager.stop()
+</code></pre>
+
+<blockquote><p><strong>NOTED</strong>:</p>
+
+<p>The sleep() call before the stop() is to make sure the manager has finished sending all the messages out to the server. It is a good practice to do this whenever you try to shut down the manager.</p></blockquote>
+
+<h4>2. Receiving Message</h4>
+
+<p>To receive messages, you can not use a unique manager as what you do in sending message. Instead, you need to set up the receiver, a.k.a, the consumer, by youself.</p>
+
+<p>Corresponding to two built-in types of worker, there are also two types of built-in consumers: <strong>LogConusmer</strong>, and <strong>EventConsumer</strong>. The reason of this design is, generally speaking, message processing tasks would vary from each other and be much more complicated than message sending.</p>
+
+<ul>
+<li><h5>LogConsumer</h5></li>
+</ul>
+
+
+<p>The most easy way to set up a consumer is like this:</p>
+
+<pre><code>consumer = LogMsgConsumer(keys=['debug', 'info', 'error'])
+</code></pre>
+
+<p>The only thing that you need to care about is the keys(conceptually, the 'topic' in MQ terminology) you want to check.</p>
+
+<p>Then you can set the callback function by:</p>
+
+<pre><code>consumer.callback = my_callback
+</code></pre>
+
+<p>Or you can combine both steps into one initialization:</p>
+
+<pre><code>consumer = LogMsgConsumer(keys=['debug'], log_callback=my_callback)
+</code></pre>
+
+<p>The previous way would be helpful when you want to set up the callback later, not just at the first initialization stage.</p>
+
+<p>Now you can start the consumer:</p>
+
+<pre><code>consumer.run()
+</code></pre>
+
+<p>Or stop it:</p>
+
+<pre><code>consumer.stop()
+</code></pre>
+
+<p>Before forwarding to next step, you need to be aware that each consumer would set up its own message loop in its process. That means once the consumer is running, it would block your process into a infinite looping. So if you have any other tasks besides of consuming the message, it's better to fork the consumer into a sub-process or a seperate thread.</p>
+
+<p>You can use signals (like ^C or ^D) to interrupt the loop. So the recommended usage of consumer is as follows:</p>
+
+<pre><code>try:
+    info_consumer = LogMsgConsumer(keys=['debug'], log_callback=my_callback)
+    info_consumer.run()
+
+except KeyboardInterrupt:
+    info_consumer.stop()
+
+except Exception, e:
+    print 'get the exception: %r' % e
+    if info_consumer.ready:
+        info_consumer.stop()
+</code></pre>
+
+<p>Besides of <strong> <em>keys</em> </strong> and <strong> <em>log_callback</em> </strong>, there are some other parameters you need know when you use log consumer:</p>
+
+<table>
+<thead>
+<tr>
+<th> Params </th>
+<th> Description </th>
+<th> Default Values </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> queue </td>
+<td> the name of the queue which bound to the keys  </td>
+<td> None (using the default value in configure file) </td>
+</tr>
+<tr>
+<td> queue_durable </td>
+<td> the durable attribute of the queue </td>
+<td> True (recommended if the message is important) </td>
+</tr>
+</tbody>
+</table>
+
+
+<p>It is highly recommended to apply a explicite queue name each time when setting the <strong> <em>keys</em> </strong>. Because this would help the MQ server to seperate the messages in different queues from each other, helping decrease the load of each queue.</p>
+
+<p>For the full description of the consumer API, please refer to the <strong><code>Class Reference</code></strong> Section.</p>
+
+<ul>
+<li><h5>EventConsumer</h5></li>
+</ul>
+
+
+<p>Event Consumer is almost the same of Log Consumer, except OMQS makes some more restrictions on it. For example, there is no durable parameter in the class initialization, meaning you can not change the durable attribute of the queue. Another change you may not notice is that the <strong> <em>keys</em> </strong> parameter is not required but optional.</p>
+
+<p>So you can set up a event consumer like this(leaving everything as defualt value):</p>
+
+<pre><code>consumer = EventMsgConsumer()
+consumer.callback = my_callback
+consumer.run()
+</code></pre>
+
+<p>At this time, the event message is send and received by using defualt key: <code>'omqs.key.event'</code></p>
+
+<blockquote><p><strong>NOTED:</strong></p>
+
+<p>If you leave everything as default in the consumer side, you must make sure the default value should be used in the other side(OMQSManager). For example, the event should be sent via calling <code>send_event()</code> without explicitly setting the key. So it is highly recommended to assign a key name for each message, and send/receive it in a consistent way.</p></blockquote>
+
+<h3>A 'Hello world' Example</h3>
+
+<p>OK, now let's put all things together in one simple example. We call it 'Hello world'. In this sample, we need to send out a event message 'Hello world' from a <em>producer</em> process, and echo this message in another <em>consumer</em> process. And we will use each API with default settings, except we explicitly assign a customized key for the message - 'HelloKey'.</p>
+
+<p>First, <em>producer.py</em></p>
+
+<pre><code># producer.py
+
+from OMQSManager import OMQSManager
+from OMQSLogManager import OMQSLogManager
+import time
+
+logManager = OMQSLogManager(name='producer.py', file_name='producer.log')
+logger = logManager.logger
+logger.lever = 'INFO'
+
+logger.info('Starting the manager...')
+try:
+    manager = OMQSManager()
+    manager.run()
+
+    logger.info('sending out the message ...')
+    manager.send_event('Hello world', 'HelloKey')
+except Exception, e:
+    logger.error('Error: %r', e)
+
+logger.info('Doing some other tasks ...')
+# simulate other tasks
+time.sleep(3)
+
+logger.info('Shutting down the manager ....')
+manager.stop()
+</code></pre>
+
+<p>Second, <em>consumer.py</em></p>
+
+<pre><code>from EventMsgConsumer import EventMsgConsumer
+
+try:
+    consumer = EventMsgConsumer(keys=['HelloKey'])
+    consumer.callback = hello_callback
+    consumer.run()
+
+except KeyboardInterrupt:
+    consumer.stop()
+
+except Exception, e:
+    print 'get the exception: %r' % e
+    if consumer.ready:
+        consumer.stop()
+
+def hello_callback(channel, method, properties, body):
+    print " [x] hello_callback: %r:%r" % (method.routing_key, body,)
+</code></pre>
+
+<h3>Advanced Customization:</h3>
+
+<p>OMQS is designed to be a sub-class-able structure. So besides of the built-in types, you can build you own class by customizing the base class.</p>
+
+<h4>1. Worker Customization</h4>
+
+<p>The base class of Worker is <strong><code>MsgWorker</code></strong>. To Customize MsgWorker baseclass, a few abstract methods need to be overrided:</p>
+
+<pre><code>class YourMsgWorker(MsgWorker):
+    def __init__(self, q, name='YourMsgWorker'):
+        super(YourMsgWorker, self).__init__(q, name)
+        # TODO HERE ...
+        # Your own class initialization
+
+    def worker_will_run(self):
+        # TODO HERE ...
+        # Setting up your worker before it starts.
+        # In OMQS, the most common initial works 
+        # are setting up the MQ publisher. 
+        # Two built-in publishers could be chose, 
+        # while you are free to build your own publisher.
+
+    def msg_did_receive(self, msg):
+        # TODO HERE ...
+        # This is the main procedure of the worker, which 
+        # called each time a new message comes in.
+        # In OMQS, you can publish the message to MQ here.
+
+    def worker_will_stop(self):
+        # TODO HERE ...
+        # Finailzie your worker here.
+        # In OMQS, you probably need to close the publisher
+        # here.
+</code></pre>
+
+<p>For more details, please refer to the source code of <em>EventMsgWorker</em> or <em>LogMsgWorker</em>.</p>
+
+<h4>2. Consumer Customization</h4>
+
+<p>The base class of Consumer is <strong><code>SyncConsumer</code></strong>. Customizing SyncConsumer baseclass is much more easier than Worker. You just need to pay more attentions to the particular parameters of the baseclass:</p>
+
+<pre><code>class YourMsgConsumer(OMQSSyncConsumer):
+    def __init__(self,
+                 name='YourConsumer',
+                 amqp_url=...,
+                 exchange_name=...,
+                 exchange_type=...,
+                 exchange_durable=...,
+                 queue_name=...,
+                 queue_durable=...,
+                 routing_keys=...,
+                 no_ack=...,
+                 callback=...):
+</code></pre>
+
+<p>For more details, please refer to the source code of <em>EventMsgConsumer</em> or <em>LogMsgConsumer</em>.</p>
+
+<blockquote><p><strong>WARRNING</strong>:</p>
+
+<p>As there are lots of operations on Networking and Configuration, when you customizing the worker/consumer, you should be very careful about the <strong>exception handling</strong>. Otherwise you main process may probably crash frequently without expectation!</p></blockquote>
+
+<h3>OMQS Logger</h3>
+
+<p>To generate uniform and pretty log output, OMQS wraps a new logger basing on the Python standard <em>logging</em> module, called OMQSLogManager.</p>
+
+<p>OMQSLogManager makes the log output easily configurable and customizable, exporting various settings in configuration file.</p>
+
+<p>To use the OMQS logger, first, initialize a logger manager:</p>
+
+<pre><code>manager = OMQSLogManager()
+</code></pre>
+
+<p>This method creats a default manager using default settings, while it's highly recommended to set some important parameters when you're using the manager in practice:</p>
+
+<pre><code>manager = OMQSLogManager(name='YourModule', file_name='YourModule.log') 
+</code></pre>
+
+<p>This would help you make the log output of the module seperated from each other.</p>
+
+<p>Then, get the logger instance:</p>
+
+<pre><code>log = manager.logger
+</code></pre>
+
+<p>Then, use the instance just as freely as using the standard logging class:</p>
+
+<pre><code>log.info('info test')
+log.debug('debug test')
+log.error('error test')
+...
+</code></pre>
+
+<p>And you can set the log level whenever you want ignore some logs:</p>
+
+<pre><code># 'test 2' will be output
+manager.level = 'DEBUG'
+log.debug('debug test 2')
+
+# 'test 3' will be ignored
+manager.level = 'INFO'
+log.debug('debug test 3')
+
+# 'test 4' will be output
+log.setLevel('DEBUG')
+log.debug('debug test 4')
+</code></pre>
+
+<p>Log settings could be found in the <strong>Log</strong> section of <em>OMQS.cfg</em> file:</p>
+
+<pre><code>[Log]
+FOLDER=./log/
+LEVEL=INFO
+FORMAT=[OMQS] %%(levelname) -5s %%(asctime)s %%(filename) -10s:%%(lineno) -5d: %%(message)s
+
+; 'file', 'stream'
+TYPE=stream
+
+; True, False
+ROTATION=True
+
+; 'time', 'size'
+ROTATION_TYPE=size
+
+; max file size (MB) when ROTATION_TYPE = 'size'
+SIZE=5
+
+; max rotation time when ROTATION_TYPE = 'time'
+; example:
+;   1S - 1 Seconds
+;   2M - 2 Minutes
+;   3H - 3 Hours
+;   4D - 4 Days
+;   W0 - Weekday 0: Monday
+;   MD - midnight
+ROTATING_TIME=1S
+
+
+; max rotation file number when ROTATION = True
+BACKUP_COUNT=10
+</code></pre>
+
+<p>Detail description of each key:</p>
+
+<table>
+<thead>
+<tr>
+<th> Key </th>
+<th> Value Type </th>
+<th> Description </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>  <em>TYPE</em> </td>
+<td> 'file' / 'stream' </td>
+<td> Current output type: on standard console or write into file </td>
+</tr>
+<tr>
+<td> <em>ROTATION</em> </td>
+<td> True / False </td>
+<td> If using rotation backup or not </td>
+</tr>
+<tr>
+<td> <em>ROTATION_TYPE</em> </td>
+<td> 'size' / 'time' </td>
+<td> Rotaiton mode, basing on size limitation or time trigger </td>
+</tr>
+<tr>
+<td> <em>SIZE</em> </td>
+<td> number (MB) </td>
+<td>available if ROTAITON=True and ROTATION_TYPE=size </td>
+</tr>
+<tr>
+<td> <em>ROTATING_TIME</em> </td>
+<td> string </td>
+<td> See the comments in the file sample above </td>
+</tr>
+<tr>
+<td> <em>BACKUP_COUNT</em> </td>
+<td> number </td>
+<td> max rotation file number when ROTATION=True </td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>ConfigReader</h3>
+
+<p>ConfigReader is a 3rd party 'ini' parsing module, which make it increadblly easiy to read and write the settings into ini configure file. For more details, please refer to</p>
+
+<p>Here is a simple example. If you have a ini file <em>test.ini</em> like this:</p>
+
+<pre><code>[Section1]
+key1=a
+
+[Section2]
+key2=b
+</code></pre>
+
+<p>Then you can retreive the values by following way:</p>
+
+<pre><code>C = ConfigReader()
+C.read("test.ini")
+
+print(C.Section1.key1)
+print (C.Section2.key2)
+</code></pre>
+
+<blockquote><p><strong>NOTED</strong>:</p>
+
+<p>You need to be careful the exceptions through out by the ConfigReader. It is a good practice to always put the config reading sections into a 'try...except...' block.</p></blockquote>
+
+<h3>Class Reference:</h3>
+
+<p>(TBC)</p>
+
+<h4>a) Core Class</h4>
+
+<ul>
+<li>OMQSManager</li>
+<li>MsgWorker</li>
+<li>EventMsgWorker</li>
+<li>LogMsgWorker</li>
+<li>AsyncPublisher</li>
+<li>SyncPublisher</li>
+<li>SyncConsumer</li>
+<li>AsyncConsumer</li>
+<li>LogMsgConsumer</li>
+<li>EventMsgConsumer</li>
+</ul>
+
+
+<h4>b) Utility Class:</h4>
+
+<ul>
+<li>ConfigReader</li>
+<li>OMQSLogManager</li>
+<li>OMQSExceptions</li>
+<li>OMQSUtils</li>
+</ul>
+
+</body>
+</html>
